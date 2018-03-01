@@ -23,4 +23,23 @@ Where all the errors is taken care of
 This file contains the codes of design that responsible for the webpages, login, registration, and welcome page.
 
     this initial readme file is by Alvin
-#################################################
+#############################################
+*beach.php
+---> This is where the codes for the category 'beaches' and also it has its own connection to the database.
+
+*caves.php
+---> This is where the codes for the category 'caves' and also it has its own connection to the database.
+
+*falls.php
+---> This is where the codes for the category 'falls' and also it has its own connection to the database.
+
+*landmarks.php
+---> This is where the codes for the category 'landmarks' and also it has its own connection to the database.
+
+*Category.php
+---> This is where the codes for the category 'beach'main page of the website where the categories are displayed. It has no connection to the database.
+
+listview.sql
+--->This is the database used for the main page
+
+----->this secondary part is edited by Junel<-----

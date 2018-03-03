@@ -1,16 +1,29 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['username']);
+	header("location: login.php");
+}
+?>
 <html>
 <head>
 <div class='nav'>
 <ul>
 <li><a href="login.php">Logout</a></li>
-<li><a href="Category.php">Home</a></li>
+<li><a href="index.php">Home</a></li>
 <li><a href="caves.php">Caves</a></li>
 <li><a href="beaches.php">Beaches</a></li>
 <li><a href="landmarks.php">Landmarks</a></li>
 <li><b href="#">Falls</b></li>
 </ul>
 </div>
-<br><br><br><br><br><br><div class='logo' align='center'><h1 align='left'>Eastern Samar's Top:</h1><img src='falls1.png' width='600px' height='300px'></div><br><br>
+<br><br><br><br><br><br><div class='logo' align='center'><h1 align='left'>Eastern Samar's Top:</h1><img src='images/falls1.png' width='600px' height='300px'></div><br><br>
 <div class='header'><h1 align='center'><marquee scrollamount='15' behavior='alternate'>Welcome to the Top Falls Destinations in Eastern Samar!</marquee></h1></div><br><br><br>
 <style>
 .nav{
@@ -88,7 +101,7 @@ background-color:white;
 }
 .header{
 border: 2px, black;
-width: 1270px;
+width: 100%;
 height: 50px;
 background:#20B2AA;
 color: black;
@@ -100,7 +113,7 @@ opacity: 1;
 }
 .falls{
 border: 2px, black;
-width: 350px;
+width: 100%;
 height: 75px;
 
 color: black;
@@ -112,11 +125,11 @@ margin-left: 460px;
 padding-top: 5px;
 background: #20B2AA;
 color: white;
-width:1270px;;
+width:100%;;
 height: 60px;
 text-align: center;
 position: absolute;
-margin-top: 2150px;
+margin-top: 2632px;
 }
 img{
 border-radius: 10px;
@@ -127,12 +140,12 @@ border-radius: 10px;
 <?php
 
 $server = "localhost";
-$uname = "user";
-$pword = "root_user";
+$uname = "alvin";
+$pword = "Alvin_c4";
 $db = "listview";
 
 $connect = new mysqli($server, $uname, $pword, $db);
-	
+
 	if ($connect->connect_error){
 		die("Failed!: " . $connect->connect_error);
 }
@@ -144,35 +157,35 @@ $output = $connect->query($query);
 		while($data = $output->fetch_assoc()){
 
 if($data["name"]=="Amandaraga Falls"){
-echo "<div class='pic'>"."<img src='Amandaraga.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Amandaraga.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Ban-awan Falls"){
-echo "<div class='pic'>"."<img src='Ban-awan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Ban-awan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Zanisi Falls"){
-echo "<div class='pic'>"."<img src='Zanisi.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Zanisi.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Tingson Falls"){
-echo "<div class='pic'>"."<img src='Tingson.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Tingson.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Pangi Falls"){
-echo "<div class='pic'>"."<img src='Pangi.png' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Pangi.png' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
@@ -184,4 +197,3 @@ echo "<div class='pic'>"."<img src='Pangi.png' width='800px' height='416px' bord
 </body>
 <div class='footer'><h3>All Rights Reserved. Copyright @Webizat LTD. 2018</h3></div>
 </html>
-

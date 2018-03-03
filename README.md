@@ -1,4 +1,4 @@
-# smallphp
+#Eastern Samar Travel Destinations Webpage
 #The files included in this project is for our smallphp website, contains log in, registration etc
 
 ==Images Folder==

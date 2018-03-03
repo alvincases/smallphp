@@ -131,8 +131,8 @@ border-radius: 10px;
 <?php
 
 $server = "localhost";
-$uname = "alvin";
-$pword = "Alvin_c4";
+$uname = "webizat";
+$pword = "Root_000";
 $db = "listview";
 
 $connect = new mysqli($server, $uname, $pword, $db);

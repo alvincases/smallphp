@@ -17,13 +17,13 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <img src="cover2.jpg" class="cover">
-  <img src ="welcome1.png" class ="welcome1">
+  <img src="images/cover2.jpg" class="cover">
+  <img src ="images/welcome1.png" class ="welcome1">
 <div class="loginBox">
-    <img src="user.png" class="user">
+    <img src="images/user.png" class="user">
 
 	<h2>Welcome Page</h2>
-<form method="post" action="Category.php">
+<form method="post" action="index.php">
 
   	<!-- notification message -->
   	<?php if (isset($_SESSION['success'])) : ?>

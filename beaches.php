@@ -1,17 +1,31 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: login.php');
+}
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['username']);
+	header("location: login.php");
+}
+?>
+
 <html>
 <head>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <div class='nav'>
 <ul>
 <li><a href="login.php">Logout</a></li>
-<li><a href="Category.php">Home</a></li>
+<li><a href="index.php">Home</a></li>
 <li><a href="caves.php">Caves</a></li>
 <li><b href="#">Beaches</b></li>
 <li><a href="landmarks.php">Landmarks</a></li>
 <li><a href="falls.php">Falls</a></li>
 </ul>
 </div>
-<br><br><br><br><br><br><div class='logo' align='center'><h1 align='left'>Eastern Samar's Top:</h1><img src='beach1.png' width='600px' height='300px' margin-top='100px'></div><br><br>
+<br><br><br><br><br><br><div class='logo' align='center'><h1 align='left'>Eastern Samar's Top:</h1><img src='images/beach1.png'  width='600px' height='300px'></div><br><br>
 <div class='header'><h1 align='center'><marquee scrollamount='15' behavior='alternate'>Welcome to the Top Beach Destinations in Eastern Samar!</marquee></h1></div><br>
 <style>
 .nav{
@@ -92,7 +106,7 @@ background-color:white;
 }
 .header{
 border: 2px, black;
-width: 1270px;
+width: 100%;
 height: 50px;
 background:#20B2AA;
 color: black;
@@ -106,11 +120,11 @@ z-index: -1;
 padding-top: 5px;
 background: #20B2AA;
 color: white;
-width:1270px;;
+width:100%;
 height: 60px;
 text-align: center;
 position: absolute;
-margin-top: 3000px;
+margin-top: 3690px;
 }
 img{
 border-radius: 10px;
@@ -121,12 +135,12 @@ border-radius: 10px;
 <?php
 
 $server = "localhost";
-$uname = "user";
-$pword = "root_user";
+$uname = "alvin";
+$pword = "Alvin_c4";
 $db = "listview";
 
 $connect = new mysqli($server, $uname, $pword, $db);
-	
+
 	if ($connect->connect_error){
 		die("Failed!: " . $connect->connect_error);
 }
@@ -138,49 +152,49 @@ $output = $connect->query($query);
 		while($data = $output->fetch_assoc()){
 
 if($data["name"]=="Apiton Island"){
-echo "<div class='pic'>"."<img src='Apiton.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Apiton.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Dangkalan Pacific Beach Resort"){
-echo "<div class='pic'>"."<img src='Dangkalan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Dangkalan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Bacayaw Resorts Cove"){
-echo "<div class='pic'>"."<img src='Bacayaw.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Bacayaw.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Liliputan Rocky Beach Resort"){
-echo "<div class='pic'>"."<img src='Liliputan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Liliputan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Minasangay Island Ecological Park and Resort"){
-echo "<div class='pic'>"."<img src='Minasangay.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Minasangay.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Jagnaya Beach"){
-echo "<div class='pic'>"."<img src='Jagnaya.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Jagnaya.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Canhugas nature Park"){
-echo "<div class='pic'>"."<img src='Canhugas.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Canhugas.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
@@ -192,4 +206,3 @@ echo "<div class='pic'>"."<img src='Canhugas.jpg' width='800px' height='416px' b
 </body>
 <div class='footer'><h3>All Rights Reserved. Copyright @Webizat LTD. 2018</h3></div>
 </html>
-

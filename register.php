@@ -7,10 +7,10 @@
 </head>
 <body>
 
-    <img src="cover2.jpg" class="cover">
-    <img src ="welcome2.png" class ="welcome2">
+    <img src="images/cover2.jpg" class="cover">
+    <img src ="images/welcome2.png" class ="welcome2">
   <div class="loginBox">
-    <img src="user.png" class="user">
+    <img src="images/user.png" class="user">
 
   	<h2>Register</h2>
 

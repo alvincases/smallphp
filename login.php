@@ -6,10 +6,10 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <img src="cover1.jpg" class="cover1">
-  <img src ="welcome1.png" class ="welcome1">
+  <img src="images/cover1.jpg" class="cover1">
+  <img src ="images/welcome1.png" class ="welcome1">
 <div class="loginBox">
-  <img src="user.png" class="user">
+  <img src="images/user.png" class="user">
 
   	<h2>Login</h2>
 

@@ -1,15 +1,17 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['username'])) {
   $_SESSION['msg'] = "You must log in first";
   header('location: login.php');
 }
 if (isset($_GET['logout'])) {
-	session_destroy();
-	unset($_SESSION['username']);
-	header("location: login.php");
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: login.php");
 }
+
 ?>
 <html>
 <head>
@@ -17,9 +19,11 @@ if (isset($_GET['logout'])) {
 <div class='header'><h1 align='center'><marquee scrollamount='15' behavior='alternate'>Welcome to the Top Destinations in Eastern Samar!</marquee></h1></div><br>
 <img src='images/map.jpg' height='400px'><br>
 <div class='nav'>
+<form>
 <ul>
-<li><a href="login.php">Logout</a></li>
+<li><input type="submit"  name="logout" value="Logout"></li>
 </ul>
+</form>
 </div>
 <style>
 
@@ -38,6 +42,22 @@ top: 0;
 ul{
 list-style-type: none;
 }
+ul input[type="submit"]
+{
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  background: transparent;
+border: none;
+}
+ul input[type="submit"]:hover
+{
+background: #F08080;
+padding: 20px;
+color: black;
+border-radius: 10px;
+}
+
 ul li{
 float: right;
 width: 140px;

@@ -5,22 +5,26 @@ if (!isset($_SESSION['username'])) {
   $_SESSION['msg'] = "You must log in first";
   header('location: login.php');
 }
-if (!isset($_SESSION['username'])) {
-  $_SESSION['msg'] = "You must log in first";
-  header('location: login.php');
+if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: login.php");
 }
+
 ?>
 <html>
 <head>
 <div class='nav'>
+<form>
 <ul>
-<li><a href="login.php">Logout</a></li>
+<li><input type="submit"  name="logout" value="Logout"></li>
 <li><a href="index.php">Home</a></li>
 <li><a href="caves.php">Caves</a></li>
 <li><a href="beaches.php">Beaches</a></li>
 <li><b href="#">Landmarks</b></li>
 <li><a href="falls.php">Falls</a></li>
 </ul>
+</form>
 </div>
 <br><br><br><br><br><br><div class='logo' align='center'><h1 align='left'>Eastern Samar's Top:</h1><img src='images/landmark1.png' width='600px' height='300px'></div><br><br>
 <div class='header'><h1 align='center'><marquee scrollamount='15' behavior='alternate'>Welcome to the Top LandMark Destinations in Eastern Samar!</marquee></h1></div><br><br><br>
@@ -35,6 +39,23 @@ top: 0;
 }
 ul{
 list-style-type: none;
+}
+ul input[type="submit"]
+{
+  border: none;
+  outline: none;
+color: white;
+background: transparent;
+  font-size: 25px;
+  cursor: pointer;
+
+}
+ul input[type="submit"]:hover
+{
+background: #F08080;
+color: black;
+padding:20px;
+border-radius: 10px;
 }
 ul li{
 float: right;
@@ -86,7 +107,7 @@ border: 1px solid black;
 background-color:#ADD8E6;
 text-align: left;
 float: right;
-width: 450px;
+width: 600px;
 text-align: justify;
 }
 .edit1{
@@ -95,7 +116,7 @@ border: 1px solid black;
 background-color:	#90EE90;
 text-align: left;
 float: right;
-width: 450px;
+width: 600px;
 text-align: justify;
 }
 body{
@@ -148,28 +169,28 @@ $output = $connect->query($query);
 		while($data = $output->fetch_assoc()){
 
 if($data["name"]=="Balangiga Encounter Monument"){
-echo "<div class='pic'>"."<img src='images/Balangiga.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Balangiga.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Magellan Landing Site"){
-echo "<div class='pic'>"."<img src='images/Magellan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Magellan.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="US Naval Depot"){
-echo "<div class='pic'>"."<img src='images/Naval.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Naval.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Eugenio S. Daza Monument"){
-echo "<div class='pic'>"."<img src='images/Eugenio.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Eugenio.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";

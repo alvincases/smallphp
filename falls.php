@@ -14,14 +14,16 @@ if (isset($_GET['logout'])) {
 <html>
 <head>
 <div class='nav'>
+<form>
 <ul>
-<li><a href="login.php">Logout</a></li>
+<li><input type="submit"  name="logout" value="Logout"></li>
 <li><a href="index.php">Home</a></li>
 <li><a href="caves.php">Caves</a></li>
 <li><a href="beaches.php">Beaches</a></li>
 <li><a href="landmarks.php">Landmarks</a></li>
 <li><b href="#">Falls</b></li>
 </ul>
+</form>
 </div>
 <br><br><br><br><br><br><div class='logo' align='center'><h1 align='left'>Eastern Samar's Top:</h1><img src='images/falls1.png' width='600px' height='300px'></div><br><br>
 <div class='header'><h1 align='center'><marquee scrollamount='15' behavior='alternate'>Welcome to the Top Falls Destinations in Eastern Samar!</marquee></h1></div><br><br><br>
@@ -36,6 +38,22 @@ top: 0;
 }
 ul{
 list-style-type: none;
+
+}
+ul input[type="submit"]
+{
+  border: none;  
+color: white;
+  font-size: 25px;
+  cursor: pointer;
+  background: transparent;
+}
+ul input[type="submit"]:hover
+{
+background: #F08080;
+color: black;
+border-radius: 10px;
+padding: 20px;
 }
 ul li{
 float: right;
@@ -84,7 +102,7 @@ border: 1px solid black;
 background-color:#ADD8E6;
 text-align: left;
 float: right;
-width: 450px;
+width: 600px;
 text-align: justify;
 }
 .edit1{
@@ -93,7 +111,7 @@ border: 1px solid black;
 background-color:#90EE90;
 text-align: left;
 float: right;
-width: 450px;
+width: 600px;
 text-align: justify;
 }
 body{
@@ -129,7 +147,7 @@ width:100%;;
 height: 60px;
 text-align: center;
 position: absolute;
-margin-top: 2632px;
+margin-top: 2600px;
 }
 img{
 border-radius: 10px;
@@ -157,35 +175,35 @@ $output = $connect->query($query);
 		while($data = $output->fetch_assoc()){
 
 if($data["name"]=="Amandaraga Falls"){
-echo "<div class='pic'>"."<img src='images/Amandaraga.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Amandaraga.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Ban-awan Falls"){
-echo "<div class='pic'>"."<img src='images/Ban-awan.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Ban-awan.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Zanisi Falls"){
-echo "<div class='pic'>"."<img src='images/Zanisi.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Zanisi.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Tingson Falls"){
-echo "<div class='pic'>"."<img src='images/Tingson.jpg' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Tingson.jpg' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>How to go there: </b>".$data["How to go there"] . '<br>'.'<br>'."</div>"."<br>";
 }
 if($data["name"]=="Pangi Falls"){
-echo "<div class='pic'>"."<img src='images/Pangi.png' width='800px' height='416px' border='2px'>".'<br>'."</div>";
+echo "<div class='pic'>"."<img src='images/Pangi.png' width='1000px' height='500px' border='2px'>".'<br>'."</div>";
 			echo "<div class='edit1'>"."<br><b>Name: </b>".$data["name"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Location: </b>".$data["Location"] . '<br>'."</div>";
 			echo "<div class='edit'>"."<br><b>Description: </b>".$data["Description"] . '<br>'."</div>";
